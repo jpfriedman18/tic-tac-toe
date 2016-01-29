@@ -9,6 +9,17 @@ require('./example');
 // load sass manifest
 require('../styles/index.scss');
 
+let change = function(event){
+  event.preventDefault();
+  if ($(event.target).text() === ''){
+    $(event.target).text('X');
+  }
+  else{
+    $(event.target).text('');
+  }
+};
+
 $(document).ready(() => {
-  console.log('It works.');
+  console.log('Poop.');
+  $('#board').on('click', change);
 });

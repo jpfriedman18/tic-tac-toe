@@ -1,7 +1,39 @@
-$background-color: #4e4e4e;
-$font-color: #dfdfdf;
-
 body {
-  background-color: $background-color;
-  color: $font-color;
+  background-color: white;
+}
+
+h1{
+  font-family: cursive;
+  font-size: 50px;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+#board {
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+
+#board tr td { width: 150px; height: 150px;
+  font-family: Helvetica;
+  font-size: 30px;
+  text-align: center; }
+
+.middleRow {border-top: 3px  solid black;
+            border-bottom: 3px  solid black}
+.middleCol {border-left: 3px  solid black;
+            border-right: 3px  solid black}
+
+#board tr td:hover { background: rgba(255, 0, 0, 0.3); cursor: pointer; }
+
+footer{
+  font-family: cursive;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  border-top: 3px solid black
 }

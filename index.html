@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
     </head>
     <body>
+      <h1>Tic-Tac-Toe</h1>
+
+      <table id='board'>
+        <tr class='topRow'>
+          <td class='leftCol'></td><td class='middleCol'></td><td class='rightCol'></td>
+        </tr>
+        <tr class='middleRow'>
+          <td class='leftCol'></td><td class='middleCol'></td><td class='rightCol'></td>
+        </tr>
+        <tr class='bottomRow'>
+          <td class='leftCol'></td><td class='middleCol'></td><td class='rightCol'></td>
+        </tr>
+      </table>
+
+      <footer>
+        A James Friedman Joint
+      </footer>
+
       <script src="http://localhost:8080/webpack-dev-server.js"></script>
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8"></script>

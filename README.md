@@ -40,6 +40,10 @@ Developers should run these often!
 -   `grunt build`: place bundled styles and scripts where `index.html` can find
     them
 
+##User Stories
+
+Users should be able to:
+
 ## [License](LICENSE)
 
 Source code distributed under the MIT license. Text and other assets copyright

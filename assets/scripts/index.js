@@ -9,7 +9,22 @@ require('./example');
 // load sass manifest
 require('../styles/index.scss');
 
-let change = function(event){
+let playGame = function(){
+  let currentPlayer = 'X';
+  let changePlayer = function(){
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  };
+
+  $('#board').find('td').on('click', function(){
+    $(this).text(currentPlayer);
+    //checkWinner(currentPlayer);
+    changePlayer();
+  });
+
+  
+
+};
+/*let change = function(event){
   event.preventDefault();
   if ($(event.target).text() === ''){
     $(event.target).text('X');
@@ -17,9 +32,10 @@ let change = function(event){
   else{
     $(event.target).text('');
   }
-};
+};*/
 
 $(document).ready(() => {
   console.log('Poop.');
-  $('#board').on('click', change);
+  playGame();
+  //$('#board').on('click', change);
 });

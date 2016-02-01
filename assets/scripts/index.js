@@ -15,13 +15,77 @@ let playGame = function(){
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
   };
 
+  let checkWinner = function(player){
+    //top row
+    if ($('#board').find('#1').text() === player
+    && $('#board').find('#2').text() === player
+    && $('#board').find('#3').text() === player){
+      alert(player + ' is the winner!');
+      resetBoard();
+    }
+    //middle row
+    if ($('#board').find('#4').text() === player
+    && $('#board').find('#5').text() === player
+    && $('#board').find('#6').text() === player){
+      alert(player + ' is the winner!');
+      resetBoard();
+    }
+    //bottom row
+    if ($('#board').find('#7').text() === player
+    && $('#board').find('#8').text() === player
+    && $('#board').find('#9').text() === player){
+      alert(player + ' is the winner!');
+      resetBoard();
+    }
+    //left column
+    if ($('#board').find('#1').text() === player
+    && $('#board').find('#4').text() === player
+    && $('#board').find('#7').text() === player){
+      alert(player + ' is the winner!');
+      resetBoard();
+    }
+    //middle column
+    if ($('#board').find('#2').text() === player
+    && $('#board').find('#5').text() === player
+    && $('#board').find('#8').text() === player){
+      alert(player + ' is the winner!');
+      resetBoard();
+    }
+    //right column
+    if ($('#board').find('#3').text() === player
+    && $('#board').find('#6').text() === player
+    && $('#board').find('#9').text() === player){
+      alert(player + ' is the winner!');
+      resetBoard();
+    }
+    //left diagonal
+    if ($('#board').find('#1').text() === player
+    && $('#board').find('#5').text() === player
+    && $('#board').find('#9').text() === player){
+      alert(player + ' is the winner!');
+      resetBoard();
+    }
+    //right diagonal
+    if ($('#board').find('#3').text() === player
+    && $('#board').find('#5').text() === player
+    && $('#board').find('#7').text() === player){
+      alert(player + ' is the winner!');
+      resetBoard();
+    }
+
+  };
+
+  //play an individual turn
   $('#board').find('td').on('click', function(){
     $(this).text(currentPlayer);
-    //checkWinner(currentPlayer);
+    checkWinner(currentPlayer);
     changePlayer();
   });
 
-  
+  let resetBoard = function(){
+    $('#board').find('td').text('');
+    currentPlayer = 'X';
+  };
 
 };
 /*let change = function(event){

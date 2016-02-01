@@ -30,6 +30,13 @@ table {
 
 #board tr td:hover { background: rgba(255, 0, 0, 0.3); cursor: pointer; }
 
+#scoreboard {
+  position: fixed;
+  padding: 30px;
+  margin: 100 auto;
+  border: 3px solid black;
+}
+
 footer{
   font-family: cursive;
   text-align: center;

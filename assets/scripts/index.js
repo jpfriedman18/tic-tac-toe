@@ -11,6 +11,9 @@ require('../styles/index.scss');
 
 let playGame = function(){
   let currentPlayer = 'X';
+  let turnCounter = 0;
+  let xWins = 0;
+  let oWins = 0;
   let changePlayer = function(){
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
   };
@@ -21,6 +24,8 @@ let playGame = function(){
     && $('#board').find('#2').text() === player
     && $('#board').find('#3').text() === player){
       alert(player + ' is the winner!');
+      updateScoreboard(player);
+      changePlayer();
       resetBoard();
     }
     //middle row
@@ -28,6 +33,8 @@ let playGame = function(){
     && $('#board').find('#5').text() === player
     && $('#board').find('#6').text() === player){
       alert(player + ' is the winner!');
+      updateScoreboard(player);
+      changePlayer();
       resetBoard();
     }
     //bottom row
@@ -35,6 +42,8 @@ let playGame = function(){
     && $('#board').find('#8').text() === player
     && $('#board').find('#9').text() === player){
       alert(player + ' is the winner!');
+      updateScoreboard(player);
+      changePlayer();
       resetBoard();
     }
     //left column
@@ -42,6 +51,8 @@ let playGame = function(){
     && $('#board').find('#4').text() === player
     && $('#board').find('#7').text() === player){
       alert(player + ' is the winner!');
+      updateScoreboard(player);
+      changePlayer();
       resetBoard();
     }
     //middle column
@@ -49,6 +60,8 @@ let playGame = function(){
     && $('#board').find('#5').text() === player
     && $('#board').find('#8').text() === player){
       alert(player + ' is the winner!');
+      updateScoreboard(player);
+      changePlayer();
       resetBoard();
     }
     //right column
@@ -56,6 +69,8 @@ let playGame = function(){
     && $('#board').find('#6').text() === player
     && $('#board').find('#9').text() === player){
       alert(player + ' is the winner!');
+      updateScoreboard(player);
+      changePlayer();
       resetBoard();
     }
     //left diagonal
@@ -63,6 +78,8 @@ let playGame = function(){
     && $('#board').find('#5').text() === player
     && $('#board').find('#9').text() === player){
       alert(player + ' is the winner!');
+      updateScoreboard(player);
+      changePlayer();
       resetBoard();
     }
     //right diagonal
@@ -70,36 +87,48 @@ let playGame = function(){
     && $('#board').find('#5').text() === player
     && $('#board').find('#7').text() === player){
       alert(player + ' is the winner!');
+      updateScoreboard(player);
+      changePlayer();
       resetBoard();
     }
-
+    //Check for a draw
+    if (turnCounter === 9){
+      alert('It\'s a draw!');
+      changePlayer();
+      resetBoard();
+    }
   };
 
   //play an individual turn
   $('#board').find('td').on('click', function(){
-    $(this).text(currentPlayer);
-    checkWinner(currentPlayer);
-    changePlayer();
+    if ($(this).text() === ''){
+      $(this).text(currentPlayer);
+      checkWinner(currentPlayer);
+      changePlayer();
+      $('#currentPlayer').text('Current Player: ' + currentPlayer);
+      turnCounter++;
+    }
   });
 
   let resetBoard = function(){
     $('#board').find('td').text('');
-    currentPlayer = 'X';
+    changePlayer();
+    turnCounter = 0;
   };
 
+  let updateScoreboard = function(player){
+    if (player === 'X'){
+      xWins++;
+      $('#x-score').text('X Wins: ' + xWins);
+    }
+    else{
+      oWins++;
+      $('#o-score').text('O Wins: ' + oWins);
+    }
+  };
 };
-/*let change = function(event){
-  event.preventDefault();
-  if ($(event.target).text() === ''){
-    $(event.target).text('X');
-  }
-  else{
-    $(event.target).text('');
-  }
-};*/
 
 $(document).ready(() => {
   console.log('Poop.');
   playGame();
-  //$('#board').on('click', change);
 });
